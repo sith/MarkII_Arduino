@@ -3,11 +3,13 @@
 
 #include <Arduino.h>
 #include "MarkIIArduino.h"
+#include "AngleMeasure.h"
 
 #include <MarkIIEnvironment.h>
 #include <MarkIIEnvironment.cpp>
 
 MarkIIArduino *markIIArduino;
+AngleMeasure *angleMeasure;
 
 void setup() {
     Serial.begin(9600);
@@ -16,6 +18,8 @@ void setup() {
     markIIArduino->init();
 
     Serial.println("Started");
+    angleMeasure = new AngleMeasure;
+
 }
 
 void loop() {

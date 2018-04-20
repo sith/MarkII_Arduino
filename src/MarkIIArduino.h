@@ -22,7 +22,13 @@ class MarkIIArduino : public mark2::MarkIIEnvironment<Motor8520> {
     Motor8520 motor2;
     Motor8520 motor3;
     Motor8520 motor4;
-    mark2::MotorManager<Motor8520> motorManager{motor1, motor2, motor3, motor4};
+
+    mark2::GenericMotor<Motor8520> genericMotor1{motor1};
+    mark2::GenericMotor<Motor8520> genericMotor2{motor2};
+    mark2::GenericMotor<Motor8520> genericMotor3{motor3};
+    mark2::GenericMotor<Motor8520> genericMotor4{motor4};
+
+    mark2::MotorManager<Motor8520> motorManager{genericMotor1, genericMotor2, genericMotor3, genericMotor4};
 
 public:
     mark_os::cycle::Cycle &getCycle() override;

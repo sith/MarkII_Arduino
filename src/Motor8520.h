@@ -10,7 +10,9 @@
 
 class Motor8520 {
 public:
-    void throttle(uint8 value);
+
+
+    void operator()(uint8 value);
 };
 
 
